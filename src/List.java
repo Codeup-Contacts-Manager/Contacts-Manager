@@ -25,7 +25,8 @@ public class List {
          * Prompt user to input First Name, Last Name, Email, Address, Phone Number
          * and Notes. Read the values and store the values into the contact list.
          **/
-        public void addPerson() {
+       public void addPerson() {
+
 
                 System.out.println(" 1. Add a New Person ");
                 Person newPerson = new Person();
@@ -76,6 +77,7 @@ public class List {
                 }
 
         }
+
         /** This method prints out the contacts inside the list **/
         public void printList() {
                 System.out.println("2. Print the list of contact. ");
@@ -87,7 +89,7 @@ public class List {
         /**
          * This method retrieve the individual(s) contact info. from the list by
          * searching last name
-         * @param person
+//         * @param person
          **/
         public void searchLastName() {
                 System.out.println("3. Retrieve contacts by searching last name. ");
@@ -115,10 +117,10 @@ public class List {
         public int mainMenu() {
             System.out.println("-----------------------------");
             System.out.println("What do you want to do?");
-            System.out.println("  1. Add new person");
-            System.out.println("  2. Visualize contact list");
+            System.out.println("  1. View contacts");
+            System.out.println("  2. Add a new contact");
             System.out.println("  3. Search a specific person on the contact list by last name");
-            System.out.println("  4. Exit");
+            System.out.println("  5. Exit");
             System.out.println();
             System.out.print("Input: ");
 
@@ -135,19 +137,17 @@ public class List {
      */
         public void exit() {
                   for (Person person : list) {
-                        String saving = person.toString();
-                try {
-                        BufferedWriter writer = new BufferedWriter( new FileWriter("contacts.txt"));
-                        writer.write(saving);
-                        writer.close();
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }}
-
-
-                System.out.println("------------------");
-                System.out.println("Program Terminated, Saved to disk");
-                System.out.println("------------------");
-
+                      String saving = person.toString();
+                      try {
+                          BufferedWriter writer = new BufferedWriter(new FileWriter("contacts.txt"));
+                          writer.write(saving);
+                          writer.close();
+                      } catch (IOException e) {
+                          e.printStackTrace();
+                      }
+                      System.out.println("------------------");
+                      System.out.println("Program Terminated, Saved to disk");
+                      System.out.println("------------------");
+                  }
         }
         }
