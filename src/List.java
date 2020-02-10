@@ -3,13 +3,20 @@ package src;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import static java.nio.file.StandardOpenOption.APPEND;
 
 /** One object of this class stores a list of persons' contact **/
 public class List {
 
-        private ArrayList<Person> list = new ArrayList<Person>();
+        private ArrayList<Person> list = new ArrayList<>();
 
         /**
      * Searches to see if there is an existing
@@ -19,15 +26,33 @@ public class List {
      */
         public void runMenu() {
 
-
         }
+
+    /**Basic UI for the program which prompts users to choose one of the four options provided**/
+    public int mainMenu() {
+        System.out.println("-----------------------------");
+        System.out.println("What do you want to do?");
+        System.out.println("  1. View contacts");
+        System.out.println("  2. Add a new contact");
+        System.out.println("  3. Search a specific person on the contact list by last name");
+        System.out.println("  5. Exit");
+        System.out.println();
+        System.out.print("Input: ");
+
+        Scanner myScanner = new Scanner(System.in);
+        int userChoice = myScanner.nextInt();
+        System.out.println("-----------------------------");
+        return userChoice;
+    }
+
+
+
+
         /**
          * Prompt user to input First Name, Last Name, Email, Address, Phone Number
          * and Notes. Read the values and store the values into the contact list.
          **/
-       public void addPerson() {
-
-
+       public void addPerson() throws IOException {
                 System.out.println(" 1. Add a New Person ");
                 Person newPerson = new Person();
                 Scanner myScanner = new Scanner(System.in);
@@ -40,7 +65,13 @@ public class List {
                 String lastName = myScanner.nextLine();
                 String lastName1 = "";
 
-                /** If last name is blank, prompt user to enter last name again. **/
+                Files.write(
+                   Paths.get("data", "contacts.txt"),
+                   Arrays.asList(),
+                   APPEND
+                    );
+
+           /** If last name is blank, prompt user to enter last name again. **/
                 if (lastName.equals("")) {
                         System.out.print("  Please enter Last Name again. "
                                         + "\n  Last Name: ");
@@ -113,22 +144,7 @@ public class List {
 
 
 }
-        /**Basic UI for the program which prompts users to choose one of the four options provided**/
-        public int mainMenu() {
-            System.out.println("-----------------------------");
-            System.out.println("What do you want to do?");
-            System.out.println("  1. View contacts");
-            System.out.println("  2. Add a new contact");
-            System.out.println("  3. Search a specific person on the contact list by last name");
-            System.out.println("  5. Exit");
-            System.out.println();
-            System.out.print("Input: ");
 
-            Scanner myScanner = new Scanner(System.in);
-            int userChoice = myScanner.nextInt();
-            System.out.println("-----------------------------");
-            return userChoice;
-        }
 
 
     /**
