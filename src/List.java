@@ -14,7 +14,7 @@ import java.util.Scanner;
 import static java.nio.file.StandardOpenOption.APPEND;
 
 /** One object of this class stores a list of persons' contact **/
-public class List {
+public class List{
 
         private ArrayList<Person> list = new ArrayList<>();
 
@@ -68,7 +68,7 @@ public class List {
                 Files.write(
                    Paths.get("data", "contacts.txt"),
                    Arrays.asList(),
-                   APPEND
+                        StandardOpenOption.APPEND
                     );
 
            /** If last name is blank, prompt user to enter last name again. **/
@@ -152,6 +152,7 @@ public class List {
      * then prints a confirmation and a farewell message.
      */
         public void exit() {
+
                   for (Person person : list) {
                       String saving = person.toString();
                       try {

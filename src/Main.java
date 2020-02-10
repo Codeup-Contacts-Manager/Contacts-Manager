@@ -1,11 +1,11 @@
 package src;
 
-import java.util.Scanner;
+import java.io.IOException;
 
 /** A contact list program that stores users' information into the list**/
 public interface Main {
-        public static void main(String args[]) {
-                        List contact = new List();
+        public static void main(String args[]) throws IOException {
+                        List<Person> contact = new List<Person>();
 
                         int runVariable = 0;
 
