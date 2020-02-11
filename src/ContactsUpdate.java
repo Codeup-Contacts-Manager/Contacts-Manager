@@ -49,7 +49,7 @@ public class ContactsUpdate {
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-        System.out.println(firstName + "" + lastName + " has been successfully added to the contact list! ");
+        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list! ");
     }
 
     //    This works fine
