@@ -14,9 +14,6 @@ import java.util.Scanner;
 public class ContactsUpdate {
     public static List<Contacts> Personlist = new ArrayList<>();
 
-    /**
-     * Basic UI for the program which prompts users to choose one of the four options provided
-     **/
     public static int mainMenu() {
         System.out.println("-----------------------------");
         System.out.println("What do you want to do?");
@@ -49,7 +46,7 @@ public class ContactsUpdate {
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list! ");
+        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
     }
 
     //    This works fine
@@ -67,11 +64,6 @@ public class ContactsUpdate {
 
         }
     }
-
-    /**
-     * This method retrieve the individual(s) contact info. from the list by
-     * searching last name
-     **/
 
     public static void searchLastName() {
         System.out.println("3. Retrieve contacts by name and/or phone number. ");
@@ -95,12 +87,33 @@ public class ContactsUpdate {
         System.out.println("Redirecting to the Main Menu");
     }
 
-    public static void exit() {
-        System.out.println("Goodbye");
-        System.out.println("------------------");
+    public static void deleteContact() {
+        System.out.println("4. Delete contacts by name and/or phone number. ");
+        System.out.print(" Name or Number: ");
+        Scanner myScanner = new Scanner(System.in);
+        String searchedName = myScanner.nextLine();
+        Path ContactsPath = Paths.get("data", "contacts.txt");
+        List<String> Personlist;
+        try {
+            Personlist = Files.readAllLines(ContactsPath);
+            List<String> newList = new ArrayList<>();
+            for (String person : Personlist) {
+                person = person.toLowerCase();
+                if (person.toLowerCase().contains(searchedName)) {
+                    continue;
+                }
+                newList.add(person);
+            }
+            for (String name : newList) {
+                System.out.println(name);
+            }
+            Files.write(Paths.get("data", "contacts.txt"), newList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void deleteContact() {
-
+    public static void exit() {
+        System.out.println("Goodbye");
     }
 }
