@@ -45,13 +45,27 @@ public class ContactsUpdate {
         String phoneNumber = myScanner.nextLine();
         Files.write(
                 Paths.get("data", "contacts.txt"),
-                Arrays.asList(firstName, lastName, phoneNumber),
+                Arrays.asList(firstName + " " + lastName + " " + phoneNumber),
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-        System.out.println(Personlist);
-        System.out.println("has been successfully added to the contact list! ");
+//        System.out.println(Personlist);
+        System.out.println(firstName + "" + lastName + " has been successfully added to the contact list! ");
     }
+
+//    public static void addPerson(String newContact) {
+//        List<String> contact = new ArrayList<>();
+//        contact.add(newContact);
+//        try {
+//            Files.write(
+//                    Paths.get("data", "contacts.txt"),
+//                    Arrays.asList(newContact), // list with one item
+//                    StandardOpenOption.APPEND);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
     //    This works fine
     public static void printList() {
@@ -84,14 +98,26 @@ public class ContactsUpdate {
         String searchedLastName = myScanner.nextLine();
         Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
+//        try {
+//            Personlist = Files.readAllLines(ContactsPath);
+//            for (int i = 0; i < Personlist.size(); i += 1) {
+//                if (searchedLastName.contains(Personlist.get(i))) {
+//                    System.out.println("Contact:\n" + Personlist.toString());
+//                }
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("This contact does not exist");
+//        }
+
         try {
             Personlist = Files.readAllLines(ContactsPath);
-            for (int i = 0; i < Personlist.size(); i += 1) {
-                if (searchedLastName.equals(Personlist.get(i))) {
-                    System.out.println("Contact:\n" + Personlist.toString());
+            for (String name : Personlist) {
+                if (searchedLastName.toLowerCase().contains(searchedLastName.toLowerCase())) {
+                    System.out.println("Contact:\n" + name);
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("This contact does not exist");
