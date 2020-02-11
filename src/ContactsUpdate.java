@@ -99,7 +99,7 @@ public class ContactsUpdate {
             Personlist = Files.readAllLines(ContactsPath);
             List<String> newList = new ArrayList<>();
             for (String person : Personlist) {
-                person = person.toLowerCase();
+//                person = person.toLowerCase();
                 if (person.toLowerCase().contains(searchedName)) {
                     continue;
                 }
