@@ -76,7 +76,7 @@ public class ContactsUpdate {
 
     public static void searchLastName() {
         System.out.println("3. Retrieve contacts contact by name and/or phone number. ");
-        System.out.print(" Last Name: ");
+        System.out.print(" Name or Number: ");
         Scanner myScanner = new Scanner(System.in);
         String searchedLastName = myScanner.nextLine();
         Path ContactsPath = Paths.get("data", "contacts.txt");

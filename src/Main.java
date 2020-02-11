@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public interface Main {
     public static void main(String args[]) throws IOException {
 
-        int runVariable = 0;
+//        int runVariable = 0;
 
-        while (runVariable == 0) {
+        while (true) {
             int userChoice = ContactsUpdate.mainMenu();
             if (userChoice == 1)
                 ContactsUpdate.printList();
@@ -23,7 +23,7 @@ public interface Main {
                 ContactsUpdate.deleteContact();
             } else if (userChoice == 5) {
                 ContactsUpdate.exit();
-                runVariable = 1;
+//                runVariable = 1;
             } else
                 System.out.println("Invalid input.");
         }
