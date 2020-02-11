@@ -23,7 +23,7 @@ public class ContactsUpdate {
         System.out.println("  1. View contacts");
         System.out.println("  2. Add a new contact");
         System.out.println("  3. Search a specific person on the contact list by last name");
-        System.out.println("  5. Exit");
+        System.out.println("  4. Exit");
         System.out.println();
         System.out.print("Input: ");
 
@@ -49,23 +49,8 @@ public class ContactsUpdate {
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-//        System.out.println(Personlist);
         System.out.println(firstName + "" + lastName + " has been successfully added to the contact list! ");
     }
-
-//    public static void addPerson(String newContact) {
-//        List<String> contact = new ArrayList<>();
-//        contact.add(newContact);
-//        try {
-//            Files.write(
-//                    Paths.get("data", "contacts.txt"),
-//                    Arrays.asList(newContact), // list with one item
-//                    StandardOpenOption.APPEND);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 
     //    This works fine
     public static void printList() {
@@ -87,9 +72,7 @@ public class ContactsUpdate {
     /**
      * This method retrieve the individual(s) contact info. from the list by
      * searching last name
-     * //         * @param person
      **/
-
 
     public static void searchLastName() {
         System.out.println("3. Retrieve contacts by searching last name. ");
@@ -98,51 +81,21 @@ public class ContactsUpdate {
         String searchedLastName = myScanner.nextLine();
         Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
-//        try {
-//            Personlist = Files.readAllLines(ContactsPath);
-//            for (int i = 0; i < Personlist.size(); i += 1) {
-//                if (searchedLastName.contains(Personlist.get(i))) {
-//                    System.out.println("Contact:\n" + Personlist.toString());
-//                }
-//            }
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("This contact does not exist");
-//        }
-
         try {
             Personlist = Files.readAllLines(ContactsPath);
-            for (String name : Personlist) {
-                if (searchedLastName.toLowerCase().contains(searchedLastName.toLowerCase())) {
-                    System.out.println("Contact:\n" + name);
+            for (String person : Personlist) {
+                if (person.toLowerCase().contains(searchedLastName.toLowerCase())) {
+                    System.out.println("Contact:\n" + person);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("This contact does not exist");
         }
-
-//        }
         System.out.println("-----------------------------");
         System.out.println("Redirecting to the Main Menu");
     }
-//    static void searchLastName() throws IOException {
-//        System.out.println("Please enter the name you would like to search for: ");
-//        Scanner Search = new Scanner(System.in);
-//        String name = Search.nextLine();
-//        List<String> Personlist = Files.readAllLines(Paths.get("data", "contacts.txt"));
-//        for (String contact : Personlist) {
-//            if (contact.equals(name)) {
-//                System.out.println(Personlist);
-//            }
-//        }
-//    }
 
-    /**
-     * Saves the existing contact list to a .txt file on the hard drive,
-     * then prints a confirmation and a farewell message.
-     */
     public static void exit() {
         System.out.println("Goodbye");
         System.out.println("------------------");
