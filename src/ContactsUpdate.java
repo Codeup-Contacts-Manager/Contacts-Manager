@@ -68,14 +68,13 @@ public class ContactsUpdate {
         }
     }
 
-
     /**
      * This method retrieve the individual(s) contact info. from the list by
      * searching last name
      **/
 
     public static void searchLastName() {
-        System.out.println("3. Retrieve contacts contact by name and/or phone number. ");
+        System.out.println("3. Retrieve contacts by name and/or phone number. ");
         System.out.print(" Name or Number: ");
         Scanner myScanner = new Scanner(System.in);
         String searchedLastName = myScanner.nextLine();
