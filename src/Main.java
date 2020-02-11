@@ -17,8 +17,8 @@ public interface Main {
                 ContactsUpdate.printList();
             else if (userChoice == 2)
                 ContactsUpdate.addPerson();
-//            else if (userChoice == 3)
-//                ContactsUpdate.searchLastName();
+            else if (userChoice == 3)
+                ContactsUpdate.searchLastName();
             else if (userChoice == 4) {
                 ContactsUpdate.exit();
                 runVariable = 1;

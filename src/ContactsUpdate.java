@@ -14,7 +14,7 @@ import java.util.Scanner;
 /**
  * One object of this class stores a list of persons' contact
  **/
-    public class ContactsUpdate {
+public class ContactsUpdate {
     public static List<Contacts> Personlist = new ArrayList<>();
 
 
@@ -54,14 +54,13 @@ import java.util.Scanner;
 
         Files.write(
                 Paths.get("data", "contacts.txt"),
-                Arrays.asList(firstName,lastName,phoneNumber),
+                Arrays.asList(firstName, lastName, phoneNumber),
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-            System.out.println(Personlist);
-        System.out.println( "has been successfully added to the contact list! ");
-        }
-
+        System.out.println(Personlist);
+        System.out.println("has been successfully added to the contact list! ");
+    }
 
 
     /**
@@ -81,6 +80,7 @@ import java.util.Scanner;
             System.out.println((i + 1) + ": " + Personlist.get(i));
 
         }
+    }
 
 
     /**
@@ -88,7 +88,8 @@ import java.util.Scanner;
      * searching last name
      * //         * @param person
      **/
-//    public static void searchLastName() {
+
+//        public static void searchLastName () {
 //            System.out.println("3. Retrieve contacts by searching last name. ");
 //            System.out.print(" Last Name: ");
 //            Scanner myScanner = new Scanner(System.in);
@@ -97,19 +98,60 @@ import java.util.Scanner;
 //            System.out.println("-----------------------------");
 //            System.out.println("Redirecting to the Main Menu");
 //        }
+//    }
+//    public static void searchLastName() {
+//        System.out.println("3. Retrieve contacts by searching last name. ");
+//        System.out.print(" Last Name: ");
+//        Scanner myScanner = new Scanner(System.in);
+//        String lastName = myScanner.nextLine();
+//        Path ContactsPath = Paths.get("data", "contacts.txt");
+//        List<String> Personlist = null;
+//
+//        try {
+//            Personlist = Files.readAllLines(ContactsPath);
+//            for (String Contacts : Personlist) {
+//                if (lastName.toLowerCase().contains(lastName.toLowerCase())) {
+//                    System.out.println("Contact:\n" + lastName);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("This contact does not exist");
+//        }
+//
+////        for (Contacts contact : Personlist) {
+////            if (lastName.equals(contact.getLastName())) {
+////                System.out.println(contact);
+////            } else {
+////                System.out.println("There are no last name matches in the contact list");
+////
+////            }
+////        }
+//        System.out.println("-----------------------------");
+//        System.out.println("Redirecting to the Main Menu");
+//    }
+    static void searchLastName() throws IOException {
+        System.out.println("Please enter the name you would like to search for: ");
+        Scanner kb = new Scanner(System.in);
+        String name = kb.nextLine();
 
+        List<String> Personlist = Files.readAllLines(Paths.get("data", "contacts.txt"));
+        for (String contact : Personlist) {
+            if (contact.equals(name)) {
+                System.out.println(Personlist);
+            }
+        }
     }
-
 
     /**
      * Saves the existing contact list to a .txt file on the hard drive,
      * then prints a confirmation and a farewell message.
      */
     public static void exit() {
-        for (Contacts contact: Personlist) {
-            }
-            System.out.println("------------------");
-            System.out.println("Program Terminated, Saved to disk");
-            System.out.println("------------------");
+        for (Contacts contact : Personlist) {
         }
+        System.out.println("------------------");
+        System.out.println("Program Terminated, Saved to disk");
+        System.out.println("------------------");
     }
+}
