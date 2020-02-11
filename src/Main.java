@@ -20,6 +20,8 @@ public interface Main {
             else if (userChoice == 3)
                 ContactsUpdate.searchLastName();
             else if (userChoice == 4) {
+                ContactsUpdate.deleteContact();
+            } else if (userChoice == 5) {
                 ContactsUpdate.exit();
                 runVariable = 1;
             } else

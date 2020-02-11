@@ -1,18 +1,18 @@
 package src;
 
 
-
 public class Contacts {
 
     private String firstName;   // firstName is a data member.
     private String lastName;    // lastName is a data member.
     private String phoneNumber; // phoneNumber is a data member
 
-    public Contacts (String firstName, String lastName, String phoneNumber){
+    public Contacts(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
+
     /**
      * Sets the value of firstName to "newFirstName".
      **/
@@ -56,7 +56,7 @@ public class Contacts {
     }
 
     public String toString() {
-        return this.firstName + " " + this.lastName + "Phone number: " + this.phoneNumber ;
+        return this.firstName + " " + this.lastName + "Phone number: " + this.phoneNumber;
     }
 
 }

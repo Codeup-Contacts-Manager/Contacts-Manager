@@ -22,10 +22,10 @@ public class ContactsUpdate {
         System.out.println("What do you want to do?");
         System.out.println("  1. View contacts");
         System.out.println("  2. Add a new contact");
-        System.out.println("  3. Search a specific person on the contact list by last name");
-        System.out.println("  4. Exit");
-        System.out.println();
-        System.out.print("Input: ");
+        System.out.println("  3. Search a contact by name and/or phone number.");
+        System.out.println("  4. Delete an existing contact.");
+        System.out.println("  5. Exit");
+        System.out.print("\nEnter an option (1, 2, 3, 4 or 5): ");
 
         Scanner myScanner = new Scanner(System.in);
         int userChoice = myScanner.nextInt();
@@ -75,7 +75,7 @@ public class ContactsUpdate {
      **/
 
     public static void searchLastName() {
-        System.out.println("3. Retrieve contacts by searching last name. ");
+        System.out.println("3. Retrieve contacts contact by name and/or phone number. ");
         System.out.print(" Last Name: ");
         Scanner myScanner = new Scanner(System.in);
         String searchedLastName = myScanner.nextLine();
@@ -99,5 +99,9 @@ public class ContactsUpdate {
     public static void exit() {
         System.out.println("Goodbye");
         System.out.println("------------------");
+    }
+
+    public static void deleteContact() {
+
     }
 }
