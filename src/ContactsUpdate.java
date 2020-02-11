@@ -15,8 +15,8 @@ public class ContactsUpdate {
     public static List<Contacts> Personlist = new ArrayList<>();
 
     public static int mainMenu() {
-        System.out.println("-----------------------------");
-        System.out.println("What do you want to do?");
+//        System.out.println("-----------------------------");
+        System.out.println("\nWhat would you like to do?");
         System.out.println("  1. View contacts");
         System.out.println("  2. Add a new contact");
         System.out.println("  3. Search a contact by name and/or phone number.");
@@ -42,7 +42,7 @@ public class ContactsUpdate {
         String phoneNumber = myScanner.nextLine();
         Files.write(
                 Paths.get("data", "contacts.txt"),
-                Arrays.asList(firstName + " " + lastName + " " + phoneNumber),
+                Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
                 StandardOpenOption.APPEND
         );
         Personlist.add(new Contacts(firstName, lastName, phoneNumber));
@@ -51,7 +51,8 @@ public class ContactsUpdate {
 
     //    This works fine
     public static void printList() {
-        System.out.println("Print the list of contacts. ");
+        System.out.println("Name | Phone number ");
+        System.out.println("-----------------------------");
         Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist = null;
         try {
@@ -115,5 +116,6 @@ public class ContactsUpdate {
 
     public static void exit() {
         System.out.println("Goodbye");
+        System.exit(0);
     }
 }

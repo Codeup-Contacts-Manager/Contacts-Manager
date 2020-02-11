@@ -1,13 +1,9 @@
 package src;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-/**
- * A contact list program that stores users' information into the list
- **/
 public interface Main {
-    public static void main(String args[]) throws IOException {
+    static void main(String args[]) throws IOException {
 
         while (true) {
             int userChoice = ContactsUpdate.mainMenu();
