@@ -1,28 +1,26 @@
 package src;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * A contact list program that stores users' information into the list
  **/
 public interface Main {
     public static void main(String args[]) throws IOException {
-        List<Person> contact = new List<Person>();
 
         int runVariable = 0;
 
-        contact.runMenu();
         while (runVariable == 0) {
-            int userChoice = contact.mainMenu();
-
+            int userChoice = ContactsUpdate.mainMenu();
             if (userChoice == 1)
-                contact.printList();
+                ContactsUpdate.printList();
             else if (userChoice == 2)
-                contact.addPerson();
-            else if (userChoice == 3)
-                contact.searchLastName();
+                ContactsUpdate.addPerson();
+//            else if (userChoice == 3)
+//                ContactsUpdate.searchLastName();
             else if (userChoice == 4) {
-                contact.exit();
+                ContactsUpdate.exit();
                 runVariable = 1;
             } else
                 System.out.println("Invalid input.");
