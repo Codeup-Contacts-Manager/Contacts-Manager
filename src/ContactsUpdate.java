@@ -30,7 +30,6 @@ public class ContactsUpdate {
         return userChoice;
     }
 
-    //    This works fine
     public static void addPerson() throws IOException {
         Scanner myScanner = new Scanner(System.in);
         System.out.println(" 1. Add a New Person ");
@@ -49,7 +48,6 @@ public class ContactsUpdate {
         System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
     }
 
-    //    This works fine
     public static void printList() {
         System.out.println("Name | Phone number ");
         System.out.println("-----------------------------");
@@ -96,19 +94,18 @@ public class ContactsUpdate {
         Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
         try {
-            Personlist = Files.readAllLines(ContactsPath);
-            List<String> newList = new ArrayList<>();
+            Personlist = Files.readAllLines(ContactsPath); // imports list from original string
+            List<String> newList = new ArrayList<>(); // creates empty list
             for (String person : Personlist) {
-//                person = person.toLowerCase();
                 if (person.toLowerCase().contains(searchedName)) {
-                    continue;
+                    continue; // skips over searchedName
                 }
-                newList.add(person);
+                newList.add(person); // adds remaining names
             }
             for (String name : newList) {
                 System.out.println(name);
             }
-            Files.write(Paths.get("data", "contacts.txt"), newList);
+            Files.write(Paths.get("data", "contacts.txt"), newList); // overwrites old array list and replaces with new one
         } catch (IOException e) {
             e.printStackTrace();
         }
