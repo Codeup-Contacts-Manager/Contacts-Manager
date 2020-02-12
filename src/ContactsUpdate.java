@@ -80,7 +80,6 @@ public class ContactsUpdate {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("This contact does not exist");
         }
         System.out.println("-----------------------------");
         System.out.println("Redirecting to the Main Menu");
